@@ -1,0 +1,45 @@
+<div class="col-md-7">
+			<nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Perform Checklist <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="doChecklistAll.php?pageChecklistID=1">&nbsp7am</a></li>
+                  <li><a href="doChecklistAll.php?pageChecklistID=2">11am</a></li>
+		  <li><a href="doChecklistAll.php?pageChecklistID=3">&nbsp3pm</a></li>
+		  <li><a href="doChecklistAll.php?pageChecklistID=4">11pm</a></li>
+                  <li class="divider"></li>
+                  <!--<li class="dropdown-header">Nav header</li>-->
+                  <li><a href="#">Current Checklist</a></li>
+                </ul>
+		</li>
+	      <li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">View Checklist <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="viewChecklistAll.php?pageChecklistID=1">&nbsp7am</a></li>
+                  <li><a href="viewChecklistAll.php?pageChecklistID=2">11am</a></li>
+		  <li><a href="viewChecklistAll.php?pageChecklistID=3">&nbsp3pm</a></li>
+		  <li><a href="viewChecklistAll.php?pageChecklistID=4">11pm</a></li>
+                  <li class="divider"></li>
+                  <!--<li class="dropdown-header">Nav header</li>-->
+                  <li><a href="#">Latest Checklist</a></li>
+                </ul>
+              </li> 
+              <li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage Baselines <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="doBaseline.php?pageChecklistID=1">&nbsp7am</a></li>
+                  <li><a href="doBaseline.php?pageChecklistID=2">11am</a></li>
+		  <li><a href="doBaseline.php?pageChecklistID=3">&nbsp3pm</a></li>
+		  <li><a href="doBaseline.php?pageChecklistID=4">11pm</a></li>
+                  <li class="divider"></li>
+                  <!--<li class="dropdown-header">Nav header</li>-->
+                  <li><a href="#">Current Baseline</a></li>
+                            
+            </ul>
+		<li><a href="WorklogHome.php">Worklog </a></li>
+          </div>
+	</div>
+	</div>
