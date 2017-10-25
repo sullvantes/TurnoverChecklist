@@ -1,113 +1,97 @@
+<?php
+include("makeconnection.php");
+$dial_countries_abbrev=array(
+    "DIAL_BH",
+    "DIAL_BR",
+    "DIAL_CN",
+    "DIAL_FR",    
+    "DIAL_DE",
+    "DIAL_HK",
+    "DIAL_ID",
+    "DIAL_IE",
+    "DIAL_JP",
+    "DIAL_MO",
+    "DIAL_MY",
+    "DIAL_MX",    
+    "DIAL_MC",
+    "DIAL_SG",
+    "DIAL_TH",
+    "DIAL_AE",
+    "DIAL_UK",
+    "DIAL_VN"
+    );
+$dial_country_names= array(
+    "Bahrain",
+    "Brazil",
+    "China",
+    "France",
+    "Germany",
+    "Hong Kong",
+    "Indonesia",
+    "Ireland",
+    "Japan",
+    "Macau",
+    "Malaysia",
+    "Mexico",
+    "Monaco",
+    "Singapore",
+    "South Korea",
+    "Taiwan",
+    "Thailand",
+    "UAE",
+    "United Kingdom",
+    "Vietnam");
+
+
+foreach($dial_countries as $key=>$value) {
+    // do stuff
+}
+
+$dial_countries_string = implode (", ", $dial_countries_abbrev);
+if ($_GET['pageChecklistID']){
+    $baseline_id= (int)$_GET['pageChecklistID']+1000;
+    }
+else{
+    $baseline_id= 1001;
+}
+$dial_baseline_sql="SELECT $dial_countries_string from Checklist.Dial_Parms where dial_chklist_id = $baseline_id";
+
+
+$dial_baseline_result = $conn->query($dial_baseline_sql);
+
+$dial_baseline_row = null;
+
+if ($dial_baseline_result->num_rows > 0) {
+    while($dial_baseline_row_tester = $dial_baseline_result->fetch_assoc()) {
+        $dial_baselines = $dial_baseline_row_tester;
+    	}
+} else {
+    echo "0 results<br><br>";
+}
+
+
+
+
+?>
 <div id = "dialTitleExpanded">
-<h4><u>International Dial Success Rate by Region (-)</u></h4>
+<h4><u>International Dial Success Rate by Region</u></h4>
 </div>
+<!--
 <div id = "dialTitleCollapsed">
 <h4><u>International Dial Success Rate by Region (+) </u></h4>
 </div>
-
+-->
 <div class="container">
-<div id = "dialBody">
-<div id = "DIAL_BH">
-<div class='col-md-2'>
-Bahrain: </div><div class = 'col-md-3'><input type="percent" name="DIAL_BH">%</div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_BR">
-<div class='col-md-2'>
-Brazil: </div><div class = 'col-md-3'><input type="percent" name="DIAL_BR"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_CN">
-<div class='col-md-2'>
-China: </div><div class = 'col-md-3'><input type="percent" name="DIAL_CN" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_FR">
-<div class='col-md-2'>
-France: </div><div class = 'col-md-3'><input type="percent" name="DIAL_FR"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_DE">
-<div class='col-md-2'>
-Germany: </div><div class = 'col-md-3'><input type="percent" name="DIAL_DE"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_HK">
-<div class='col-md-2'>
-Hong Kong:</div><div class = 'col-md-3'><input type="percent" name="DIAL_HK" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_ID">
-<div class='col-md-2'>
-Indonesia: </div><div class = 'col-md-3'><input type="percent" name="DIAL_ID" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_IE">
-<div class='col-md-2'>
-Ireland: </div><div class = 'col-md-3'><input type="percent" name="DIAL_IE"> %</div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_JP">
-<div class='col-md-2'>
-Japan: </div><div class = 'col-md-3'><input type="percent" name="DIAL_JP" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_MC">
-<div class='col-md-2'>
-Macau: </div><div class = 'col-md-3'><input type="percent" name="DIAL_MC" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_MY">
-<div class='col-md-2'>
-Malaysia: </div><div class = 'col-md-3'><input type="percent" name="DIAL_MY" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_MX">
-<div class='col-md-2'>
-Mexico: </div><div class = 'col-md-3'><input type="percent" name="DIAL_MX"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_MO">
-<div class='col-md-2'>
-Monaco: </div><div class = 'col-md-3'><input type="percent" name="DIAL_MO"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_SG">
-<div class='col-md-2'>
-Singapore: </div><div class = 'col-md-3'><input type="percent" name="DIAL_SG" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_KR">
-<div class='col-md-2'>
-South Korea: </div><div class = 'col-md-3'><input type="percent" name="DIAL_KR" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_TW">
-<div class='col-md-2'>
-Taiwan: </div><div class = 'col-md-3'><input type="percent" name="DIAL_TW" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_TH">
-<div class='col-md-2'>
-Thailand: </div><div class = 'col-md-3'><input type="percent" name="DIAL_TH" value = 86> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_AE">
-<div class='col-md-2'>
-UAE: </div><div class = 'col-md-3'><input type="percent" name="DIAL_AE"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_UK">
-<div class='col-md-2'>
-United Kingdom: </div><div class = 'col-md-3'><input type="percent" name="DIAL_UK"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-<div id = "DIAL_VN">
-<div class='col-md-2'>
-Vietnam: </div><div class = 'col-md-3'><input type="percent" name="DIAL_VN"> % </div><div class = 'col-md-7'></div>
-<br><br>
-</div>
-</div>
+<div class="container-fluid">
+    
+<?php
+
+foreach ($dial_countries_abbrev as $index=>$abbrev){
+    echo "<div class=\"row\"><div id=\"$abbrev\">$dial_country_names[$index]:</div><div class = 'col-md-3'><input type=\"percent\" name=\"$abbrev\" placeholder = \"$dial_baselines[$abbrev]\">%</div>";
+    echo "</div>";
+}
+?>
+
 </div>
 </div>
 

@@ -7,12 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Production Support Checklist Home </title>
-    	<link rel="stylesheet" href="/CSS/bootstrap.css.map"/>
-	<link rel="stylesheet" href="/CSS/bootstrap-theme.css"/>
-	<link rel="stylesheet" href="/CSS/bootstrap-theme.css.map"/>
-	<link rel="stylesheet" href="/CSS/bootstrap-theme.min.css"/>
-	<link rel="stylesheet" href="/CSS/bootstrap.css"/>
-	<link rel="stylesheet" href="/CSS/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 
 
@@ -21,19 +16,14 @@
 
 
 <?php
-include("header.php");
-include("makeconnection.php");
-include("insertworklogform.php");
-include("viewworklog.php");
-include("SearchWL_return.php");
+include("header.html");
+//include("makeconnection.php");
+//include("insertworklogform.php");
+//include("viewworklog.php");
+//include("SearchWL_return.php");
 
-$conn->close();
+//$conn->close();
 ?>
-	
-<br><br>
-<a href =https://shoppertrak.onelogin.com/login target = "_blank"> Go to OneLogin</a>
-
-
 
 </body>
 
