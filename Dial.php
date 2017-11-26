@@ -1,6 +1,5 @@
 <?php
-include("makeconnection.php");
-$dial_countries_abbrev=array(
+$dial_country_abbrev=array(
     "DIAL_BH",
     "DIAL_BR",
     "DIAL_CN",
@@ -40,21 +39,22 @@ $dial_country_names= array(
     "Thailand",
     "UAE",
     "United Kingdom",
-    "Vietnam");
+    "Vietnam");   
 
-
-foreach($dial_countries as $key=>$value) {
-    // do stuff
+$dial_db_string = implode(", ", $dial_country_abbrev);
+$dial_country_string = implode(", ", $dial_country_names);
+if ($baseline_form==FALSE){
+    echo "<input type =\"hidden\" name=\"dial_db_names\" value = \"$dial_db_string\">";
+    echo "<input type =\"hidden\" name=\"dial_country_names\" value = \"$dial_country_string\">";
 }
 
-$dial_countries_string = implode (", ", $dial_countries_abbrev);
 if ($_GET['pageChecklistID']){
     $baseline_id= (int)$_GET['pageChecklistID']+1000;
     }
 else{
     $baseline_id= 1001;
 }
-$dial_baseline_sql="SELECT $dial_countries_string from Checklist.Dial_Parms where dial_chklist_id = $baseline_id";
+$dial_baseline_sql="SELECT $dial_db_string from Checklist.Dial_Parms where dial_chklist_id = $baseline_id";
 
 
 $dial_baseline_result = $conn->query($dial_baseline_sql);
@@ -68,28 +68,21 @@ if ($dial_baseline_result->num_rows > 0) {
 } else {
     echo "0 results<br><br>";
 }
-
-
-
-
 ?>
+
 <div id = "dialTitleExpanded">
 <h4><u>International Dial Success Rate by Region</u></h4>
 </div>
-<!--
-<div id = "dialTitleCollapsed">
-<h4><u>International Dial Success Rate by Region (+) </u></h4>
-</div>
--->
 <div class="container">
 <div class="container-fluid">
     
 <?php
-
-foreach ($dial_countries_abbrev as $index=>$abbrev){
-    echo "<div class=\"row\"><div id=\"$abbrev\">$dial_country_names[$index]:</div><div class = 'col-md-3'><input type=\"percent\" name=\"$abbrev\" placeholder = \"$dial_baselines[$abbrev]\">%</div>";
-    echo "</div>";
-}
+foreach ($dial_country_abbrev as $index=>$abbrev){
+    echo "<div class=\"row\"><div id=\"$abbrev\">$dial_country_names[$index]:</div><div class = 'col-md-3'><input type=\"percent\" name=\"$abbrev\" placeholder = \"$dial_baselines[$abbrev]\">%</div></div>";
+    if ($baseline_form==FALSE){
+        echo "<input type =\"hidden\" name=\"baselines[$abbrev]\" value=\"$dial_baselines[$abbrev]\">";
+    }
+    }
 ?>
 
 </div>
