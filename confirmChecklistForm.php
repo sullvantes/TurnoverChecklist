@@ -3,6 +3,7 @@
 <input type=hidden name="FailedExtractNames" value = "<?php echo $_POST['FailedExtractNames'] ?>">
 <input type=hidden name="SalesFiles" value = "<?php echo $_POST['SalesFiles'] ?>"> 
 <input type=hidden name="SalesFilesClients" value = "<?php echo $_POST['SalesFilesClients'] ?>">
+<input type=hidden name="SalesExtractBool" value = "<?php echo ($_POST['SalesExtractBool']== 'on' ? 'True' : 'False');?>">
 <input type=hidden name="EFTA" value = "<?php echo $_POST['EFTA'] ?>">
 <input type=hidden name="EFTB" value = "<?php echo $_POST['EFTB'] ?>">
 <input type=hidden name="EFTC" value = "<?php echo $_POST['EFTC'] ?>">
@@ -36,19 +37,18 @@
 <input type=hidden name="SIPEUAcqValue" value = "<?php echo $_POST['SIPEUAcqValue'] ?>">
 <input type=hidden name="SIPHAcqValue" value = "<?php echo $_POST['SIPHAcqValue'] ?>">
 <input type=hidden name="SSCAcqValue" value = "<?php echo $_POST['SSCAcqValue'] ?>">
-<input type=hidden name="DialAcqClient" value = "<?php echo $data_parms_row['DialAcqClient'] ?>">
-<input type=hidden name="DialEUAcqClient" value = "<?php echo $data_parms_row['DialEUAcqClient'] ?>">
-<input type=hidden name="IPAcqClient" value = "<?php echo $data_parms_row['IPAcqClient'] ?>">
-<input type=hidden name="SIPAcqClient" value = "<?php echo $data_parms_row['SIPAcqClient'] ?>">
-<input type=hidden name="SIPEUAcqClient" value = "<?php echo $data_parms_row['SIPEUAcqClient'] ?>">
-<input type=hidden name="SIPHAcqClient" value = "<?php echo $data_parms_row['SIPHAcqClient'] ?>">
-<input type=hidden name="SSCAcqClient" value = "<?php echo $data_parms_row['SSCAcqClient'] ?>">
+<input type=hidden name="DialAcqClient" value = "<?php echo $_POST['DialAcqClient'] ?>">
+<input type=hidden name="DialEUAcqClient" value = "<?php echo $_POST['DialEUAcqClient'] ?>">
+<input type=hidden name="IPAcqClient" value = "<?php echo $_POST['IPAcqClient'] ?>">
+<input type=hidden name="SIPAcqClient" value = "<?php echo $_POST['SIPAcqClient'] ?>">
+<input type=hidden name="SIPEUAcqClient" value = "<?php echo $_POST['SIPEUAcqClient'] ?>">
+<input type=hidden name="SIPHAcqClient" value = "<?php echo $_POST['SIPHAcqClient'] ?>">
+<input type=hidden name="SSCAcqClient" value = "<?php echo $_POST['SSCAcqClient'] ?>">
 <input type=hidden name="NRTI" value = "<?php echo $_POST['NRTI'] ?>">
 <input type=hidden name="Malls" value = "<?php echo $_POST['Malls'] ?>">
 <input type=hidden name="SL_DiffURL" value = "<?php echo $_POST['SL_DiffURL'] ?>">
 <input type=hidden name="SL_Orgs" value = "<?php echo $_POST['SL_Orgs'] ?>">
 <input type=hidden name="Notable_Failures" value = "<?php echo $_POST['Notable_Failures'] ?>">
-
 <input type=hidden name="portal" value="<?php echo $_POST[portal]?>">
 <input type=hidden name="insights" value="<?php echo $_POST[insights] ?>">
 <input type=hidden name="opsportal" value="<?php echo $_POST[opsportal] ?>">

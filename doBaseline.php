@@ -36,7 +36,6 @@
 include("header.html");
 ?>
  
-<div class="container">
 <form action="updateBaseAll.php?pageChecklistID=<?php echo $baseline_id ?>" method = post>
 
 
@@ -44,11 +43,17 @@ include("header.html");
 //BODY
 echo "<h2>Update System Health Baselines for $chk_time Checklist</h2>";
 include("makeconnection.php");
+
 include("DataRetrieval.php");
+echo "</div>";
 include("Overnight.php");
+echo "</div>";
 include("Dial.php");
+echo "</div>";
 include("Jobwatch.php");
+echo "</div>";
 include("portals.php");
+echo "</div>";
 include ("harvest_system.php");
 $conn->close();
 ?>
@@ -62,7 +67,7 @@ $conn->close();
 </form> 
 
 <a href='ChecklistHome.php'> Return Home</a>
-</div>
+
 </body>
 
 

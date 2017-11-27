@@ -21,14 +21,6 @@
 
 </head>
 
-
-<?php
-//Get Baselines from previous form
-//$baselines=$_POST[baselines];
- 
-
-?>
-
 <body>
 
 <?php
@@ -42,6 +34,7 @@ include("reporting_functions.php");
 //connecting to SQL DB
 include("makeconnection.php");
 //Getting baselines, adding to array called $baselines
+
 include("getBaselines.php");
 
 echo "<h2>$chk_time</h2>";
@@ -52,23 +45,23 @@ while($row = $resultID->fetch_assoc()) {
 	$recent_chklst_id = $row["id"];
 	$recent_chklst_date =  $row["date_submitted"];
 	}
-include("getRecent.php");
-?>
-
-<h2 id = "view-title"></h2>
-
-<?php 
+include("getResults.php");
 
 echo "<h4>Checklist Date: $recent_chklst_date</h4><br>";
 
-//
-//include("dataRetrievalView.php");
-//include("dialView.php");
-//include("portalView.php");
-//include("jobwatchView.php");
-//include("harvestView.php");
-//include("salesView.php");
-//include("notablefailuresView.php");
+//below Boolean indicates that this is not a viewchecklist but rather a confirmchecklist
+$view_chk=TRUE;
+
+//print_r($baselines);
+//echo "<br><br><br>";
+//print_r($results);
+include("dataRetrievalReturn.php");
+include("overnightReturn.php");
+include("dialReturn.php");
+include("jobwatchReturn.php");
+include("portalReturn.php");
+include("harvestReturn.php");
+include("notableFailuresReturn.php");
 ?>
 
 

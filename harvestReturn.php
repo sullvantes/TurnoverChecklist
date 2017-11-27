@@ -4,8 +4,6 @@
 <div class = "container">
 <div id = "harvestBody">
 <?php 
-    
-
 function HarvestHealth($AppName, $AppIdle, $AppActive, $AppMem, $AppCPU, $ThreshIdle, $ThreshActive, $ThreshMem, $ThreshCPU)
 {
 $AppConns = $AppIdle + $AppActive;
@@ -19,8 +17,8 @@ if((empty($AppIdle)&&$AppIdle != '0')||(empty($AppActive)&&$AppActive != '0'))
 	{
 	echo "<div class = 'row'><div class='col-md-6'>Connections were not entered for ".$AppName.".</div>";
 	echo "<div class='col-md-6'>";
-	WantsValue($AppIdle,"$AppName Idle Processes");
-	WantsValue($AppActive,"$AppName Active Processes");
+	WantsValue($AppIdle,"$AppName Idle Processes",$view_chk);
+	WantsValue($AppActive,"$AppName Active Processes",$view_chk);
 	echo "</div></div>";
 	}
 		elseif($AppConns>$ThreshConns)
@@ -38,7 +36,7 @@ if(empty($AppMem)&&$AppMem != '0')
 	{
 	echo "<div class = 'row'><div class='col-md-6'>No value was entered for memory on $AppName</div>";
 	echo "<div class='col-md-6'>";
-	WantsValue($AppMem,"$AppName Memory");
+	WantsValue($AppMem,"$AppName Memory",$view_chk);
 	echo "</div></div>";
 	}
 		elseif($AppMem>$ThreshMem)
@@ -55,7 +53,7 @@ if(empty($AppCPU)&&$AppCPU != '0')
 	{
 	echo "<div class = 'row'><div class='col-md-6'>No value was entered for CPU on $AppName.</div>";
 	echo "<div class='col-md-6'>";
-	WantsValue($AppCPU,"$AppName CPU");
+	WantsValue($AppCPU,"$AppName CPU",$view_chk);
 	echo "</div></div>";
 	}
 elseif($AppCPU >$ThreshCPU){
@@ -70,34 +68,20 @@ echo "</div>";
 
 $harvest_hosts=array("plapp04","plapp05","plapp06","plapp07");
 foreach($harvest_hosts as $AppName){
-$AppIdle = $_POST[$AppName."_idle"];
+$AppIdle = $results[$AppName."_idle"];
     
-    $AppActive = $_POST[$AppName."_active"];
-    $AppMem = $_POST[$AppName."_mem"];
-    $AppCPU = $_POST[$AppName."_cpu"];
+    $AppActive = $results[$AppName."_active"];
+    $AppMem = $results[$AppName."_mem"];
+    $AppCPU = $results[$AppName."_cpu"];
     $ThreshIdle=$baselines[$AppName."_idle"];
     $ThreshActive=$baselines[$AppName."_active"];
     $ThreshMem=$baselines[$AppName."_mem"];
     $ThreshCPU=$baselines[$AppName."_cpu"];
-//    echo "$AppName<br>Idle=>$AppIdle<br>Active=>$AppActive<br>$AppMem<br>$AppCPU<br>Thresholds<br>$ThreshIdle<br>$ThreshActive<br>$ThreshMem<br>$ThreshCPU<br>";
     HarvestHealth($AppName, $AppIdle, $AppActive, $AppMem, $AppCPU, $ThreshIdle, $ThreshActive, $ThreshMem, $ThreshCPU);
     
 }     
-//$AppIdle = $_POST[plapp04_idle];
-//$AppActive = $_POST[$AppName."_active"];
-//$AppMem = $_POST[$AppName."_mem"];
-//$AppCPU = $_POST[$AppName."_cpu"];
-//$ThreshIdle=$baselines[plapp04_idle];
-//$ThreshActive=$baselines["plapp04_active"];
-//$ThreshMem=$baselines[$AppName."_mem"];
-//$ThreshCPU=$baselines[$AppName."_cpu"];    
-//HarvestHealth("plapp04");
-//HarvestHealth("plapp05");
-//HarvestHealth("plapp06");
-//HarvestHealth("plapp07");
-//HarvestHealth("plapp07",$_POST["plapp07_NumIdle"],$_POST["plapp07_NumActive"],$_POST["plapp07_Mem"],$_POST["plapp07_CPU"],$system_parms_row["plapp07_idle"],$system_parms_row["plapp07_active"],$system_parms_row["plapp07_mem"],$system_parms_row["plapp07_cpu"]);
 
 ?>
-</div>
+    </div></div>
 
 

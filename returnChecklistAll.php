@@ -55,17 +55,24 @@ include("header.html");
     <h4><center>Click "Submit" if values are accurate.</center></h4> 
 
 <?php 
-//foreach($baselines as $key=>$value){
-//    echo "$key:$value<br>";
-//}
+    
+$results=$_POST;
+//below Boolean indicates that this is not a viewchecklist but rather a confirmchecklist
+$view_chk=FALSE;
+    
 echo "<h2>System Health Handoff ($chk_time)</h2>";
+print_r($baselines);
+echo "<br><br>";
+print_r($results);
+echo "<br><br>";
+    
 include("dataRetrievalReturn.php");
 include("overnightReturn.php");
 include("dialReturn.php");
 include("jobwatchReturn.php");
 include("portalReturn.php");
 include("harvestReturn.php");
-include("notableFailuresReturn.php");
+include("notablefailuresReturn.php");
 include("confirmChecklistForm.php");
 ?>
     </body>

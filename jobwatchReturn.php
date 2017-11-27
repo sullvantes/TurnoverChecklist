@@ -52,7 +52,7 @@ $db_status_names= array(
 for($x=0; $x<18; $x++){
         $name=$db_status_abbrev[$x];
         $curr_baseline = $baselines[$name];
-        JobwatchHandle("$name","$db_status_names[$x]",$curr_baseline);
+        JobwatchHandle("$name","$db_status_names[$x]",$curr_baseline,$results,$view_chk);
         //inserting headers for different sections
         if ($x==2){
             echo "</div><div id = \"jobwatchBBS\"><h5><b> BBS Messages</b></h5>";
@@ -69,10 +69,10 @@ for($x=0; $x<18; $x++){
 <?php 
     $inboxservers=array("Inppwibx02","Inppwibx03","Inppwibx05");
     foreach($inboxservers as $server_name){
-        Okay($_POST[$server_name],"Windows Inbox($server_name)");
+        Okay($results[$server_name],"Windows Inbox($server_name)");
     }
 ?>
-</div><br>
+    </div></div><br>
 
 
 

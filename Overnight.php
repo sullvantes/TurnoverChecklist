@@ -58,13 +58,13 @@ if ($overnight_baseline_result->num_rows > 0) {
 for($index=0; $index<7; $index++){
     $this_connection_type = $connectiontypes[$index];
     $this_attribute = $overnight_value_param[$index];
+    $this_attribute_client=rtrim($this_attribute,"Value")."Client";
     $this_baseline = $overnight_baselines[$this_attribute];
     $this_client_name = $overnight_clients[$overnight_types[$index]];
     if ($baseline_form==FALSE){
         echo "$this_connection_type($this_client_name): <input type='percent' name=$this_attribute placeholder=\"$this_baseline\">  %<br>";
         echo "<input type =\"hidden\" name=\"baselines[$this_attribute]\"]\" value = $this_baseline>";
-        echo "<input type =\"hidden\" name=\"".$this_attribute."Client\" value = \"$this_client_name\">";
-
+        echo "<input type =\"hidden\" name=\"$this_attribute_client\" value = \"$this_client_name\">";
     }
     else{
         $this_client_type=rtrim($this_attribute,"Value")."Client";
